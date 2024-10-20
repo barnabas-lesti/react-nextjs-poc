@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { Roboto_Flex } from "next/font/google";
 
 import { type NextLayoutProps } from "#core/types";
 
 import "./globals.css";
+
+const globalFont = Roboto_Flex({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -15,7 +20,7 @@ export const metadata: Metadata = {
 export default (props: NextLayoutProps) => {
   return (
     <html lang="en">
-      <body>{props.children}</body>
+      <body className={globalFont.className}>{props.children}</body>
     </html>
   );
 };
