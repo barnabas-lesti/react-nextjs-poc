@@ -88,6 +88,13 @@ export default typescriptEslint.config(
     },
   },
   {
+    files: ["**/{layout,page}.tsx"],
+    rules: {
+      "react/display-name": "off",
+      "react-refresh/only-export-components": "off",
+    },
+  },
+  {
     files: ["**/*.{js,cjs,mjs}"],
     languageOptions: {
       parserOptions: {
