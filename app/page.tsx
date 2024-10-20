@@ -1,10 +1,10 @@
-import { type NextPageProps } from "#core/types";
+import { UiLinkComponent } from "#ui/link/component";
 
-export default (props: NextPageProps) => {
-  console.debug("app/page:props", props);
+export default () => {
   return (
     <>
-      <h1>Root</h1>
+      <h1>Home</h1>
+      <UiLinkComponent href="/example">Example</UiLinkComponent>
     </>
   );
 };
