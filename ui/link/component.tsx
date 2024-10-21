@@ -1,7 +1,5 @@
 "use client";
 
-// https://github.com/mui/material-ui/blob/7e2bcaa87ef69165b1050e535dd1189d9f560f45/examples/material-ui-nextjs-pages-router-ts/src/Link.tsx
-
 import MuiLink from "@mui/material/Link";
 import { styled } from "@mui/material/styles";
 import clsx from "clsx";
@@ -11,36 +9,38 @@ import * as React from "react";
 
 import { type LinkProps, type NextLinkWrapperProps } from "./types";
 
-// Add support for the sx prop for consistency with the other branches.
 const Anchor = styled("a")({});
 
-export const NextLinkWrapper = React.forwardRef<HTMLAnchorElement, NextLinkWrapperProps>(
-  function NextLinkWrapper(props, ref) {
-    const { to, linkAs, replace, scroll, shallow, prefetch, legacyBehavior = true, locale, ...other } = props;
+const NextLinkWrapper = React.forwardRef<HTMLAnchorElement, NextLinkWrapperProps>(function NextLinkWrapper(props, ref) {
+  const { to, linkAs, replace, scroll, shallow, prefetch, legacyBehavior = true, locale, ...other } = props;
 
-    return (
-      <NextLink
-        href={to}
-        prefetch={prefetch}
-        as={linkAs}
-        replace={replace}
-        scroll={scroll}
-        shallow={shallow}
-        passHref
-        locale={locale}
-        legacyBehavior={legacyBehavior}
-      >
-        <Anchor
-          ref={ref}
-          {...other}
-        />
-      </NextLink>
-    );
-  },
-);
+  return (
+    <NextLink
+      href={to}
+      prefetch={prefetch}
+      as={linkAs}
+      replace={replace}
+      scroll={scroll}
+      shallow={shallow}
+      passHref
+      locale={locale}
+      legacyBehavior={legacyBehavior}
+    >
+      <Anchor
+        ref={ref}
+        {...other}
+      />
+    </NextLink>
+  );
+});
 
-// A styled version of the Next.js Link component:
-// https://nextjs.org/docs/pages/api-reference/components/link
+/**
+ * A styled version of the NextJS Link component.
+ *
+ * https://nextjs.org/docs/pages/api-reference/components/link
+ *
+ * https://github.com/mui/material-ui/blob/master/examples/material-ui-nextjs-pages-router-ts/src/Link.tsx
+ */
 export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link(props, ref) {
   const {
     activeClassName = "active",
@@ -53,7 +53,6 @@ export const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(function Link
     noLinkStyle,
     prefetch,
     replace,
-    // eslint-disable-next-line unused-imports/no-unused-vars
     role,
     scroll,
     shallow,

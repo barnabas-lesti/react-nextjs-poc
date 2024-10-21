@@ -52,6 +52,7 @@ export default typescriptEslint.config(
       "no-trailing-spaces": ["error"],
       "arrow-spacing": ["error"],
       "prefer-const": ["error"],
+      "no-unused-vars": ["error", { ignoreRestSiblings: true }],
       "no-console": ["error", { allow: ["debug", "warn", "error"] }],
 
       // Typescript
@@ -71,15 +72,13 @@ export default typescriptEslint.config(
       ],
 
       // Unused imports
-      "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
+      "unused-imports/no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
-      "unused-imports/no-unused-vars": "error",
 
       // React
       ...eslintPluginReact.configs.flat.recommended.rules,
       ...eslintPluginReactHooks.configs.recommended.rules,
-      // "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
       "react/self-closing-comp": "error",
       "react-refresh/only-export-components": "error",
