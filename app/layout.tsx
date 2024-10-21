@@ -5,6 +5,8 @@ import { type NextLayoutProps } from "#core/types";
 import { Footer } from "#ui/footer/component";
 import { Header } from "#ui/header/component";
 
+import { Providers } from "./providers";
+
 import "./globals.css";
 
 const globalFont = Roboto_Flex({
@@ -21,13 +23,16 @@ export const metadata: Metadata = {
 
 export default (props: NextLayoutProps) => {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
       <body className={globalFont.className}>
-        <div className="layout">
+        <Providers>
           <Header />
           <main>{props.children}</main>
           <Footer />
-        </div>
+        </Providers>
       </body>
     </html>
   );

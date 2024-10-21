@@ -12,7 +12,7 @@ export type LinkProps = {
   activeClassName?: string;
   as?: NextLinkProps["as"];
   href: NextLinkProps["href"];
-  linkAs?: NextLinkProps["as"]; // Useful when the as prop is shallow by styled().
+  linkAs?: NextLinkProps["as"];
   noLinkStyle?: boolean;
 } & Omit<NextLinkWrapperProps, "to" | "linkAs" | "href"> &
   Omit<MuiLinkProps, "href">;
