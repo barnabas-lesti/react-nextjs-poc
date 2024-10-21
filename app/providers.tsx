@@ -1,5 +1,11 @@
+import { ClerkProvider } from "@clerk/nextjs";
+
 import { ThemeProvider } from "#ui/theme/provider";
 
 export const Providers = (props: React.PropsWithChildren) => {
-  return <ThemeProvider>{props.children}</ThemeProvider>;
+  return (
+    <ClerkProvider>
+      <ThemeProvider>{props.children}</ThemeProvider>{" "}
+    </ClerkProvider>
+  );
 };

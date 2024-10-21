@@ -1,10 +1,14 @@
-import { Link } from "#ui/link/component";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export const Header = () => {
   return (
     <header>
-      <Link href="/register">Register</Link>
-      <Link href="/login">Login</Link>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
     </header>
   );
 };
