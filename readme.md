@@ -26,3 +26,4 @@ There are of course more scripts available, check out the [package.json](./packa
 
 - [Project](https://vercel.com/barnabas-lesti-projects/diary)
 - [Storage](https://vercel.com/barnabas-lesti-projects/diary/stores)
+- [Auth](https://dashboard.clerk.com/apps/app_2nlQdHFozTPERS7XLm97usZlOj6/instances/ins_2nlQdK753qKgacGBlvcKYc4kp3c)
