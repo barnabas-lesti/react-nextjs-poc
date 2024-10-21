@@ -7,16 +7,6 @@ body {
   margin: 0;
 }
 
-a {
-  color: rgb(144, 202, 249);
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
-  &:focus {
-    color: #42a5f5;
-  }
-}
-
 main {
   padding: 1rem;
 }

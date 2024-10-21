@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
 
-import { LinkComponent } from "#ui/link/component";
+import { Link } from "#ui/link/component";
 
 export const metadata: Metadata = {
   title: "Login",
@@ -11,7 +11,7 @@ export default () => {
     <>
       <h1>Login</h1>
       <p>
-        <LinkComponent href="/">Home</LinkComponent>
+        <Link href="/">Home</Link>
       </p>
     </>
   );

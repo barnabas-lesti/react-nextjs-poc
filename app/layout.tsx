@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
 
 import { type NextLayoutProps } from "#core/types";
-import { FooterComponent } from "#ui/footer/component";
-import { HeaderComponent } from "#ui/header/component";
+import { Footer } from "#ui/footer/component";
+import { Header } from "#ui/header/component";
 
 import "./globals.css";
 
@@ -24,9 +24,9 @@ export default (props: NextLayoutProps) => {
     <html lang="en">
       <body className={globalFont.className}>
         <div className="layout">
-          <HeaderComponent />
+          <Header />
           <main>{props.children}</main>
-          <FooterComponent />
+          <Footer />
         </div>
       </body>
     </html>
