@@ -1,8 +1,8 @@
 import { Button } from "@mui/material";
 
-import { type UiButtonComponentProps } from "./types";
+import { type ButtonComponentProps } from "./types";
 
-export const UiButtonComponent = (props: UiButtonComponentProps) => {
+export const ButtonComponent = (props: ButtonComponentProps) => {
   return (
     <Button
       {...props}

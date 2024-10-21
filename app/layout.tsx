@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
 
 import { type NextLayoutProps } from "#core/types";
+import { FooterComponent } from "#ui/footer/component";
+import { HeaderComponent } from "#ui/header/component";
 
 import "./globals.css";
 
@@ -20,7 +22,13 @@ export const metadata: Metadata = {
 export default (props: NextLayoutProps) => {
   return (
     <html lang="en">
-      <body className={globalFont.className}>{props.children}</body>
+      <body className={globalFont.className}>
+        <div className="layout">
+          <HeaderComponent />
+          <main>{props.children}</main>
+          <FooterComponent />
+        </div>
+      </body>
     </html>
   );
 };

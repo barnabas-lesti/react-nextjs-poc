@@ -1,3 +1,3 @@
-export type UiLinkComponentProps = React.PropsWithChildren<{
+export type LinkComponentProps = React.PropsWithChildren<{
   href: string;
 }>;

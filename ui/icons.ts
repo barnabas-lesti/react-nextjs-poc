@@ -1,1 +1,1 @@
-export { default as UiAccessAlarmIcon } from "@mui/icons-material/AccessAlarm";
+export { default as AccessAlarmIcon } from "@mui/icons-material/AccessAlarm";
