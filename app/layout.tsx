@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Roboto_Flex } from "next/font/google";
 
 import { type NextLayoutProps } from "#core/types";
-import { Footer } from "#ui/footer/component";
-import { Header } from "#ui/header/component";
 
 import { Providers } from "./providers";
 
@@ -28,11 +26,7 @@ export default (props: NextLayoutProps) => {
       suppressHydrationWarning
     >
       <body className={globalFont.className}>
-        <Providers>
-          <Header />
-          <main>{props.children}</main>
-          <Footer />
-        </Providers>
+        <Providers>{props.children}</Providers>
       </body>
     </html>
   );

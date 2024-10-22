@@ -1,13 +1,11 @@
 "use client";
 
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, ThemeProvider as MuiThemeProvider } from "@mui/material";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
-import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
-import { type PropsWithChildren } from "react";
 
 import { THEME_CONFIG } from "./config";
 
-export const ThemeProvider = (props: PropsWithChildren) => {
+export const ThemeProvider = (props: React.PropsWithChildren) => {
   return (
     <>
       <InitColorSchemeScript attribute="class" />

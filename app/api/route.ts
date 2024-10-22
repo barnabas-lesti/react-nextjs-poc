@@ -1,3 +1,6 @@
-export async function GET() {
-  return Response.json({ hello: "there" });
-}
+import { fetchUser } from "#core/auth/functions";
+
+export const GET = async () => {
+  const user = await fetchUser();
+  return Response.json({ userFullName: user?.fullName });
+};

@@ -1,4 +1,4 @@
-import { type LinkProps as MuiLinkProps } from "@mui/material/Link";
+import { type LinkProps as MuiLinkProps } from "@mui/material";
 import { type LinkProps as NextLinkProps } from "next/link";
 
 export interface NextLinkWrapperProps

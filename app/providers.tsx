@@ -1,11 +1,10 @@
-import { ClerkProvider } from "@clerk/nextjs";
-
+import { AuthProvider } from "#core/auth/provider";
 import { ThemeProvider } from "#ui/theme/provider";
 
 export const Providers = (props: React.PropsWithChildren) => {
   return (
-    <ClerkProvider>
-      <ThemeProvider>{props.children}</ThemeProvider>{" "}
-    </ClerkProvider>
+    <ThemeProvider>
+      <AuthProvider>{props.children}</AuthProvider>
+    </ThemeProvider>
   );
 };
