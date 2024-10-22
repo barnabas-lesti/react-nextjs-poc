@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
 
-import { fetchUser, getUserId } from "#core/auth/data";
+import { getUserAsync, getUserId } from "#core/auth/data";
 import { Link } from "#ui/link/component";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default async () => {
   const userId = getUserId();
-  const user = await fetchUser();
+  const user = await getUserAsync();
 
   console.debug(userId);
   console.debug(user?.fullName);

@@ -1,8 +1,19 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 
-export const fetchUser = currentUser;
+import { UserNotSignedInError } from "./errors";
 
-export const getUserId = () => {
+export const getUserAsync = () => currentUser();
+
+export const getUserIdSafe = () => {
   const { userId } = auth();
+  return userId;
+};
+
+/**
+ * @throws {UserNotSignedInError}
+ */
+export const getUserId = (): string => {
+  const userId = getUserIdSafe();
+  if (!userId) throw new UserNotSignedInError();
   return userId;
 };
