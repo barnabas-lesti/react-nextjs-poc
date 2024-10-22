@@ -8,8 +8,6 @@ import { type ExampleItem } from "./types";
 
 export const getExampleItemsAsync = async (): Promise<ExampleItem[]> => {
   const userId = getUserId();
-  if (!userId) throw new Error("User needs to be logged in to access this resource");
-
   const exampleItems = mapDocumentsToObjects<ExampleItem>(
     await db().collection(EXAMPLES_COLLECTION_NAME).find({ userId }).toArray(),
   );
