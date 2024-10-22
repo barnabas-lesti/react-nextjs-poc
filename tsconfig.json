@@ -20,6 +20,7 @@
     "paths": {
       "#core/*": ["./core/*"],
       "#features/*": ["./features/*"],
+      "#store/*": ["./store/*"],
       "#ui/*": ["./ui/*"]
     }
   },

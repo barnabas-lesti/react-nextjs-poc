@@ -11,6 +11,9 @@ export default () => {
       <p>
         <Link href="/app/dashboard">Dashboard</Link>
       </p>
+      <p>
+        <Link href="/example">Example</Link>
+      </p>
     </>
   );
 };
