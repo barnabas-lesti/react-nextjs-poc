@@ -1,6 +1,6 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 
-export const fetchUser = currentUser;
+export const getUserAsync = () => currentUser();
 
 export const getUserId = () => {
   const { userId } = auth();

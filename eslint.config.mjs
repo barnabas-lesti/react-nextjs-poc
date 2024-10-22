@@ -52,10 +52,11 @@ export default typescriptEslint.config(
       "no-trailing-spaces": ["error"],
       "arrow-spacing": ["error"],
       "prefer-const": ["error"],
-      "no-unused-vars": ["error", { ignoreRestSiblings: true }],
       "no-console": ["error", { allow: ["debug", "warn", "error"] }],
 
       // Typescript
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error", { ignoreRestSiblings: true }],
       "@typescript-eslint/consistent-type-imports": ["error", { fixStyle: "inline-type-imports" }],
       "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/consistent-indexed-object-style": "off",
@@ -72,7 +73,6 @@ export default typescriptEslint.config(
       ],
 
       // Unused imports
-      "@typescript-eslint/no-unused-vars": "off",
       "unused-imports/no-unused-vars": "off",
       "unused-imports/no-unused-imports": "error",
 
