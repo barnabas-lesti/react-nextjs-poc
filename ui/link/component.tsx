@@ -1,7 +1,6 @@
 "use client";
 
-import MuiLink from "@mui/material/Link";
-import { styled } from "@mui/material/styles";
+import { Link as MuiLink, styled } from "@mui/material";
 import clsx from "clsx";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
