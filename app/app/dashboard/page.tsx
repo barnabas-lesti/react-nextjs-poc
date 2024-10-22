@@ -1,6 +1,6 @@
 import { type Metadata } from "next";
 
-import { fetchUser, getUserId } from "#core/auth/functions";
+import { fetchUser, getUserId } from "#core/auth/data";
 import { Link } from "#ui/link/component";
 
 export const metadata: Metadata = {

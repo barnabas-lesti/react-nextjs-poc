@@ -1,4 +1,4 @@
-import { fetchUser } from "#core/auth/functions";
+import { fetchUser } from "#core/auth/data";
 
 export const GET = async () => {
   const user = await fetchUser();
