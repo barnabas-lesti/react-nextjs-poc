@@ -1,6 +1,5 @@
 declare namespace NodeJS {
   interface ProcessEnv {
-    // Base
     readonly CI: string | undefined;
     readonly NEXT_RUNTIME: "nodejs" | "edge";
     readonly NEXT_TELEMETRY_DISABLED: "0" | "1" | undefined;
