@@ -28,3 +28,4 @@ There are of course more scripts available, check out the [package.json](./packa
 - [UI](https://mui.com/material-ui/getting-started/)
 - [Auth](https://dashboard.clerk.com/apps/app_2nlQdHFozTPERS7XLm97usZlOj6/instances/ins_2nlQdK753qKgacGBlvcKYc4kp3c)
 - [Storage](https://cloud.mongodb.com/v2/6717b26e897b77774c07d672)
+- [Logging and error tracking](https://my-company-dc.sentry.io/issues/?project=4508171075584080)
