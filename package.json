@@ -4,8 +4,8 @@
     "build": "next build",
     "clean": "git clean -Xfd",
     "dev": "next dev",
-    "lint": "pnpm lint.prettier --check && pnpm lint.eslint",
-    "lint:fix": "pnpm lint.prettier --write && pnpm lint.eslint --fix",
+    "lint": "bun run lint.prettier --check && bun run lint.eslint",
+    "lint:fix": "bun run lint.prettier --write && bun run lint.eslint --fix",
     "lint.eslint": "eslint . --cache --cache-location node_modules/.cache/eslint/",
     "lint.prettier": "prettier . --cache",
     "prod": "next start"
@@ -45,7 +45,7 @@
     "typescript": "^5.6.3",
     "typescript-eslint": "^8.2.0"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "bun@1.1.0",
   "engines": {
     "node": "^20.0.0"
   }
