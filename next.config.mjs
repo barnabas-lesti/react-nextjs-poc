@@ -1,55 +1,93 @@
 import { withSentryConfig } from "@sentry/nextjs";
 
+/** @type {string[]} */
+const REQUIRED_ENV_VARIABLES = [
+  // Clerk
+  "NEXT_PUBLIC_CLERK_SIGN_IN_URL",
+  "NEXT_PUBLIC_CLERK_SIGN_UP_URL",
+  "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY",
+  "CLERK_SECRET_KEY",
+
+  // MongoDB
+  "MONGODB_URI",
+
+  // Sentry
+  "NEXT_PUBLIC_SENTRY_DSN",
+  "SENTRY_ORG",
+  "SENTRY_PROJECT",
+  "SENTRY_AUTH_TOKEN",
+];
+
+validateProcessEnv();
+
 /** @type {import('next').NextConfig} */
-export default withSentryConfig(
-  {
-    async redirects() {
-      return [
-        {
-          source: "/app",
-          destination: "/app/dashboard",
-          permanent: true,
-        },
-      ];
-    },
+let NEXT_CONFIG = {
+  async redirects() {
+    return [
+      {
+        source: "/app",
+        destination: "/app/dashboard",
+        permanent: true,
+      },
+    ];
   },
-  {
-    // For all available options, see:
-    // https://github.com/getsentry/sentry-webpack-plugin#options
+};
 
-    org: "my-company-dc",
-    project: "diary",
+NEXT_CONFIG = withSentryConfig(NEXT_CONFIG, {
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options
 
-    // Only print logs for uploading source maps in CI
-    silent: !process.env.CI,
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
 
-    // For all available options, see:
-    // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+  // Only print logs for uploading source maps in CI
+  silent: !process.env.CI,
 
-    // Upload a larger set of source maps for prettier stack traces (increases build time)
-    widenClientFileUpload: true,
+  // For all available options, see:
+  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
-    // Automatically annotate React components to show their full name in breadcrumbs and session replay
-    reactComponentAnnotation: {
-      enabled: true,
-    },
+  // Upload a larger set of source maps for prettier stack traces (increases build time)
+  widenClientFileUpload: true,
 
-    // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
-    // This can increase your server load as well as your hosting bill.
-    // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
-    // side errors will fail.
-    tunnelRoute: "/monitoring",
-
-    // Hides source maps from generated client bundles
-    hideSourceMaps: true,
-
-    // Automatically tree-shake Sentry logger statements to reduce bundle size
-    disableLogger: true,
-
-    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-    // See the following for more information:
-    // https://docs.sentry.io/product/crons/
-    // https://vercel.com/docs/cron-jobs
-    automaticVercelMonitors: true,
+  // Automatically annotate React components to show their full name in breadcrumbs and session replay
+  reactComponentAnnotation: {
+    enabled: true,
   },
-);
+
+  // Route browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers.
+  // This can increase your server load as well as your hosting bill.
+  // Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-
+  // side errors will fail.
+  tunnelRoute: "/sentry",
+
+  // Hides source maps from generated client bundles
+  hideSourceMaps: true,
+
+  // Automatically tree-shake Sentry logger statements to reduce bundle size
+  disableLogger: true,
+
+  // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
+  // See the following for more information:
+  // https://docs.sentry.io/product/crons/
+  // https://vercel.com/docs/cron-jobs
+  automaticVercelMonitors: true,
+});
+
+export default NEXT_CONFIG;
+
+function validateProcessEnv() {
+  const initializedEnvVariables = Object.keys(process.env);
+  const missingEnvVariables = [];
+  for (const requiredEnvVariable of REQUIRED_ENV_VARIABLES) {
+    if (!initializedEnvVariables.includes(requiredEnvVariable)) {
+      missingEnvVariables.push(requiredEnvVariable);
+    }
+  }
+
+  if (missingEnvVariables.length > 0) {
+    const missingEnvVariablesString = missingEnvVariables
+      .map((missingEnvVariable) => `"${missingEnvVariable}"`)
+      .join(", ");
+    throw new Error(`Missing required env variables: ${missingEnvVariablesString}`);
+  }
+}

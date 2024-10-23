@@ -5,16 +5,16 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-if (!process.env.NEXT_PUBLIC_SENTRY_DSN) {
-  throw new Error('Missing "NEXT_PUBLIC_SENTRY_DSN" environment variable');
+const enabled = !process.env.NEXT_PUBLIC_SENTRY_DISABLED;
+if (!enabled) {
+  console.debug('Sentry disabled via "NEXT_PUBLIC_SENTRY_DISABLED".');
 }
 
 Sentry.init({
+  enabled,
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
   tracesSampleRate: 1,
-
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
 });
