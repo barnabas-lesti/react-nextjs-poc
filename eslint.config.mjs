@@ -89,7 +89,7 @@ export default typescriptEslint.config(
     },
   },
   {
-    files: ["**/{layout,page}.tsx"],
+    files: ["**/{layout,page,global-error}.tsx"],
     rules: {
       "react/display-name": "off",
       "react-refresh/only-export-components": "off",
@@ -100,6 +100,24 @@ export default typescriptEslint.config(
     languageOptions: {
       parserOptions: {
         project: false,
+      },
+    },
+  },
+  {
+    files: ["**/*.{js,mjs}"],
+    languageOptions: {
+      sourceType: "module",
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
+    files: ["**/*.cjs"],
+    languageOptions: {
+      sourceType: "commonjs",
+      globals: {
+        ...globals.node,
       },
     },
   },

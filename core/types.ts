@@ -13,3 +13,7 @@ export type NextRouteFunction = (
     params: Promise<{ [key: string]: string }>;
   },
 ) => Response | Promise<Response>;
+
+export interface NextGlobalErrorProps {
+  error: Error & { digest?: string };
+}
