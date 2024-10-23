@@ -9,7 +9,7 @@ Diary web application using NextJS.
   - It is a good idea to use [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager) to manage NodeJS. It can easily help to switch NodeJS versions when working in multiple repositories.
 - [Git](https://git-scm.com/)
   - To commit changes, can be skipped if you just want to check out the app.
-- [pnpm](https://pnpm.io/installation)
+- [bun](https://bun.sh/)
   - Faster and more robust package manager than `npm`.
 - [Vercel CLI](https://vercel.com/docs/cli)
   - Vercel utility for example to download `.env` files.
@@ -19,12 +19,12 @@ Diary web application using NextJS.
 
 ## Running the app locally
 
-1. Install required dependencies with `pnpm i`.
+1. Install required dependencies with `bun i`.
 2. Download (or create by hand) the `.env.local` config file:
    1. Log in with `vercel login`.
    2. Link local project with `vercel link`.
    3. Download the `.env.local` file with `vercel env pull`.
-3. Start the app with `pnpm dev`.
+3. Start the app with `bun dev`.
 
 There are of course more scripts available, check out the [package.json](./package.json) for more information.
 

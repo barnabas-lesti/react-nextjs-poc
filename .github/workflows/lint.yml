@@ -17,11 +17,11 @@ jobs:
         with:
           node-version: 18.20.0
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install dependencies
-        run: pnpm i
+        run: bun i
 
       - name: Run lint
-        run: pnpm lint
+        run: bun run lint
