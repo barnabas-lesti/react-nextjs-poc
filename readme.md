@@ -11,6 +11,8 @@ Diary web application using NextJS.
   - To commit changes, can be skipped if you just want to check out the app.
 - [pnpm](https://pnpm.io/installation)
   - Faster and more robust package manager than `npm`.
+- [Vercel CLI](https://vercel.com/docs/cli)
+  - Vercel utility for example to download `.env` files.
 - [Visual Studio Code](https://code.visualstudio.com/)
   - Other IDE can be used of course, but there are added settings for VSCode in the project.
   - Once the project is opened in VSCode, install the recommended extensions.
@@ -18,7 +20,11 @@ Diary web application using NextJS.
 ## Development
 
 1. Install required dependencies with `pnpm i`.
-2. Start the app with `pnpm dev`.
+2. Download (or create by hand) the `.env.local` config file:
+   1. Log in with `vercel login`.
+   2. Link local project with `vercel link`.
+   3. Download the `.env.local` file with `vercel env pull`.
+3. Start the app with `pnpm dev`.
 
 There are of course more scripts available, check out the [package.json](./package.json) for more information.
 

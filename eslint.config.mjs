@@ -103,5 +103,23 @@ export default typescriptEslint.config(
       },
     },
   },
+  {
+    files: ["**/*.{js,mjs}"],
+    languageOptions: {
+      sourceType: "module",
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
+  {
+    files: ["**/*.cjs"],
+    languageOptions: {
+      sourceType: "commonjs",
+      globals: {
+        ...globals.node,
+      },
+    },
+  },
   eslintConfigPrettier,
 );
