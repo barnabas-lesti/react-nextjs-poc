@@ -47,7 +47,7 @@ NEXT_CONFIG = withSentryConfig(NEXT_CONFIG, {
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
 
   // Upload a larger set of source maps for prettier stack traces (increases build time)
-  widenClientFileUpload: true,
+  widenClientFileUpload: !process.env.NEXT_PUBLIC_SENTRY_DISABLED,
 
   // Automatically annotate React components to show their full name in breadcrumbs and session replay
   reactComponentAnnotation: {
@@ -65,12 +65,6 @@ NEXT_CONFIG = withSentryConfig(NEXT_CONFIG, {
 
   // Automatically tree-shake Sentry logger statements to reduce bundle size
   disableLogger: true,
-
-  // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-  // See the following for more information:
-  // https://docs.sentry.io/product/crons/
-  // https://vercel.com/docs/cron-jobs
-  automaticVercelMonitors: true,
 });
 
 export default NEXT_CONFIG;
