@@ -5,9 +5,8 @@
 import * as Sentry from "@sentry/nextjs";
 
 const enabled = !process.env.NEXT_PUBLIC_SENTRY_DISABLED;
-if (!enabled) {
-  console.debug('Sentry disabled via "NEXT_PUBLIC_SENTRY_DISABLED".');
-}
+
+console.debug(`Sentry ${enabled ? "enabled" : "disabled"} via "NEXT_PUBLIC_SENTRY_DISABLED".`);
 
 Sentry.init({
   enabled,
