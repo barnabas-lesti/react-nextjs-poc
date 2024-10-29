@@ -1,6 +1,6 @@
-# Diary
+# React NextJS PoC
 
-Diary web application using NextJS.
+Web application sandbox project using React with NextJS.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ There are of course more scripts available, check out the [package.json](./packa
 
 ## Dashboards and integrations
 
-- [Deployment](https://vercel.com/barnabas-lesti-projects/diary)
+- [Deployment](https://vercel.com/barnabas-lesti-my-team/react-nextjs-poc)
 - [UI](https://mui.com/material-ui/getting-started/)
 - [Auth](https://dashboard.clerk.com/apps/app_2nlQdHFozTPERS7XLm97usZlOj6/instances/ins_2nlQdK753qKgacGBlvcKYc4kp3c)
 - [Storage](https://cloud.mongodb.com/v2/6717b26e897b77774c07d672)

@@ -13,10 +13,10 @@ const globalFont = Roboto_Flex({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Diary",
-    default: "Diary",
+    template: "%s | App",
+    default: "App",
   },
-  description: "Diary web application",
+  description: "Web application with React and NextJS",
 };
 
 export default (props: NextLayoutProps) => {
